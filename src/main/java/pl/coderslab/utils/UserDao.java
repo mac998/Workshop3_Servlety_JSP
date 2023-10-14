@@ -1,14 +1,6 @@
-package pl.coderslab.entity;
+package pl.coderslab.utils;
 
 import org.mindrot.jbcrypt.BCrypt;
-import pl.coderslab.DbUtil;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 
 import java.sql.*;
 
