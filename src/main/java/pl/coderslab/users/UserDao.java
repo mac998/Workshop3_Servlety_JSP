@@ -23,14 +23,7 @@ public class UserDao {
     private static final String SELECT_ALL_USERS_QUERY =
             "SELECT * from users";
 
-//    PreparedStatement preStmt =
-//            conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-//
-//    ResultSet rs = preStmt.getGeneratedKeys();
-//        if(rs.next()){
-//            long id = rs.getLong(1);
-//            System.out.println("Inserted ID: " + id);
-//        }
+
     public String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
@@ -94,26 +87,6 @@ public class UserDao {
             e.printStackTrace();
         }
     }
-//    public User[] findAll() {
-//
-//        try (Connection conn = DbUtil.getConnection()) {
-//            User[] users = new User[0];
-//            PreparedStatement statement = conn.prepareStatement(SELECT_ALL_USERS_QUERY);
-//            ResultSet resultSet = statement.executeQuery();
-//            while (resultSet.next()) {
-//                User user = new User();
-//                user.setId(resultSet.getInt("id"));
-//                user.setUserName(resultSet.getString("username"));
-//                user.setEmail(resultSet.getString("email"));
-//                user.setPassword(resultSet.getString("password"));
-//               users = addToArray(user, users);
-//            }
-//            return users;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
 
     public User[] findAll() {
         try (Connection conn = DbUtil.getConnection()) {
