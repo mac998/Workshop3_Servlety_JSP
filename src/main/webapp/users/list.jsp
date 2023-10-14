@@ -12,6 +12,11 @@
                 class="fas fa-download fa-sm text-white-50"></i> Add user</a>
     </div>
 
+<c:if test = "${userCreated}">
+    <div class="alert alert-success">STWORZONO UZYTKOWNIKA</div>
+
+</c:if>
+
 
     <table class="table">
         <thead>
