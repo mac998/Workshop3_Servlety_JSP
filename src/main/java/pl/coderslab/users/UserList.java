@@ -15,8 +15,6 @@ public class UserList extends HttpServlet {
         UserDao userDao = new UserDao();
         var users = userDao.findAll();
 
-        Arrays.asList(users).forEach(System.out::println);
-
         request.setAttribute("users", userDao.findAll());
 
         getServletContext().getRequestDispatcher("/users/list.jsp")

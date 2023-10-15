@@ -13,7 +13,7 @@
     </div>
 
 <c:if test = "${userCreated}">
-    <div class="alert alert-success">STWORZONO UZYTKOWNIKA</div>
+    <div class="alert alert-success">STWORZONO UŻYTKOWNIKA</div>
 
 </c:if>
 
@@ -37,7 +37,7 @@
                 <td>
                     <a href='<c:url value="/user/delete?id=${user.id}"/>'>Usuń</a>
                     <a href='<c:url value="/user/edit?id=${user.id}"/>'>Edytuj</a>
-                    <a href='<c:url value="/user/list?id=${user.id}"/>'>Wyświetl</a>
+                    <a href='<c:url value="/user/read?id=${user.id}"/>'>Wyświetl</a>
                 </td>
             </tr>
         </c:forEach>

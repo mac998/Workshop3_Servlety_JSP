@@ -13,7 +13,7 @@
     </div>
 
 
-    <form method="post">
+    <form method="post" action="/user/edit">
 
         <input type="hidden" class="form-control" name="id" value=${user.id}  required>
 

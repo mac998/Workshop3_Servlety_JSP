@@ -17,20 +17,14 @@ public class UserAdd extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getParameter("userName"));
-        System.out.println(request.getParameter("email"));
-        System.out.println(request.getParameter("password"));
-
         User user = new User(
                 null,
-                request.getParameter("userName"),
                 request.getParameter("email"),
+                request.getParameter("userName"),
                 request.getParameter("password")
         );
         UserDao userDao = new UserDao();
         userDao.create(user);
-
-        request.setAttribute("userCreated", true);
 
         response.sendRedirect("/user/list");
 

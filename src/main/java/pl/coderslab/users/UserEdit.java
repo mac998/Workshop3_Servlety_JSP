@@ -19,8 +19,28 @@ public class UserEdit extends HttpServlet {
         System.out.println(user);
 
 
-
         getServletContext().getRequestDispatcher("/users/edit.jsp")
                 .forward(request, response);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = new User(
+                null,
+                request.getParameter("email"),
+                request.getParameter("userName"),
+                request.getParameter("password")
+        );
+        UserDao userDao = new UserDao();
+
+        String id = request.getParameter("id");
+
+        System.out.println(user);
+
+        userDao.update(Integer.parseInt(id), user);
+
+        response.sendRedirect("/user/list");
+
+
+    }
 }
+
