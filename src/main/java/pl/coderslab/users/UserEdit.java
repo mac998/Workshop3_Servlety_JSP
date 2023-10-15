@@ -6,20 +6,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 
-@WebServlet("/user/list")
-public class UserList extends HttpServlet {
+@WebServlet("/user/edit")
+public class UserEdit extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         UserDao userDao = new UserDao();
-        var users = userDao.findAll();
+        String id = request.getParameter("id");
 
-        Arrays.asList(users).forEach(System.out::println);
+        User user = userDao.read(Integer.parseInt(id));
+        request.setAttribute("user", user);
 
-        request.setAttribute("users", userDao.findAll());
+        System.out.println(user);
 
-        getServletContext().getRequestDispatcher("/users/list.jsp")
+
+
+        getServletContext().getRequestDispatcher("/users/edit.jsp")
                 .forward(request, response);
     }
 }

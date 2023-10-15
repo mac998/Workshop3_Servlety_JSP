@@ -6,9 +6,11 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
-    private int id;
+    private Integer id;
     private String email;
     private String userName;
     private String password;

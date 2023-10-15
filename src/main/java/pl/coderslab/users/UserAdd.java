@@ -21,10 +21,19 @@ public class UserAdd extends HttpServlet {
         System.out.println(request.getParameter("email"));
         System.out.println(request.getParameter("password"));
 
-
+        User user = new User(
+                null,
+                request.getParameter("userName"),
+                request.getParameter("email"),
+                request.getParameter("password")
+        );
+        UserDao userDao = new UserDao();
+        userDao.create(user);
 
         request.setAttribute("userCreated", true);
-        getServletContext().getRequestDispatcher("/users/list.jsp")
-                .forward(request, response);
+
+        response.sendRedirect("/user/list");
+
+
     }
 }
