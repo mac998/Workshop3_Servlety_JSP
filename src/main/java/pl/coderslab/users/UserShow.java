@@ -7,14 +7,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/user/delete")
-public class UserDelete extends HttpServlet {
+@WebServlet("/user/show")
+public class UserShow extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         UserDao userDao = new UserDao();
-        userDao.delete(Integer.parseInt(request.getParameter("id")));
+        String id = request.getParameter("id");
 
-        response.sendRedirect("/user/list");
+        User user = userDao.read(Integer.parseInt(id));
+        request.setAttribute("user", user);
 
+        getServletContext().getRequestDispatcher("/users/show.jsp")
+                .forward(request, response);
+
+//        response.sendRedirect("/user/list");
     }
 }
+
+
+
+
+
+
+
