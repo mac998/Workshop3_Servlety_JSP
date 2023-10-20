@@ -11,7 +11,12 @@
         <a href='<c:url value="/user/add?id=${user.id}"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-download fa-sm text-white-50"></i> Add user</a>
     </div>
-
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Lista użykowników</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
 
     <table class="table">
         <thead>
